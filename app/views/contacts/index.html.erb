@@ -2,8 +2,9 @@
 
 <h3>My Contacts</h3>
   <% @contacts.each do |contact|%>
-    <p><%= contact.name%></p>
-    <p><%= contact.number%> <%= link_to "-", contact_path(contact.id), method: "DELETE", :class => "btn-xs btn-danger" %></p>
+    <p><strong><%= contact.name%></strong></p>
+    <p><%= contact.number%> <%= link_to "-", contact_path(contact.id), method: "DELETE", :class => "btn-xs btn-danger" %>
+                            <%= link_to "+", edit_contact_path(contact.id), :class => "btn-xs btn-success" %></p>
   <% end %>
 
 <h3>Add a new contact</h3>
