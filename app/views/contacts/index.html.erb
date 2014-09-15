@@ -1,0 +1,11 @@
+<h1>Texter</h1>
+
+<h3>My Contacts</h3>
+  <% @contacts.each do |contact|%>
+    <p><%= contact.name%></p>
+    <p><%= contact.number%></p>
+  <% end %>
+
+<h3>Add a new contact</h3>
+
+  <%= render 'form' %>
