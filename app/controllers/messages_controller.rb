@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = Message.all
-    @message = Message.new
+    @message = Message.new(to: params[:to])
   end
 
   def new

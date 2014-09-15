@@ -4,7 +4,8 @@
   <% @contacts.each do |contact|%>
     <p><strong><%= contact.name%></strong></p>
     <p><%= contact.number%> <%= link_to "-", contact_path(contact.id), method: "DELETE", :class => "btn-xs btn-danger" %>
-                            <%= link_to "+", edit_contact_path(contact.id), :class => "btn-xs btn-success" %></p>
+                            <%= link_to "+", edit_contact_path(contact.id), :class => "btn-xs btn-success" %>
+                            <%= link_to "SMS", messages_path(to: contact.number), :class => "btn-xs btn-primary" %></p>
   <% end %>
 
 <h3>Add a new contact</h3>
