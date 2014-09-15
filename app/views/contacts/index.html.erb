@@ -3,7 +3,7 @@
 <h3>My Contacts</h3>
   <% @contacts.each do |contact|%>
     <p><%= contact.name%></p>
-    <p><%= contact.number%></p>
+    <p><%= contact.number%> <%= link_to "-", contact_path(contact.id), method: "DELETE", :class => "btn-xs btn-danger" %></p>
   <% end %>
 
 <h3>Add a new contact</h3>
