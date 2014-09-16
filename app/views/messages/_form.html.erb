@@ -2,11 +2,19 @@
 
 <%= form_for @message do |f| %>
   <div class="form-group">
-    <%= f.collection_check_boxes :contact_ids, Contact.all, :id, :name %>
-    <%= f.label :from %>
-    <%= f.text_field :from %>
-    <%= f.label :body %>
-    <%= f.text_field :body %>
+    <div class = "row">
+      <div class="col-md-4">
+        <%= f.label :from %>
+        <%= f.text_field :from, :class=>"form-control"%>
+        <%= f.label :body %>
+        <%= f.text_area :body, :class=>"form-control" %>
+        <br>
+        <%= f.submit(:class => "btn btn-primary") %>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Select contact(s) to recieve your message:</strong></p>
+        <%= f.collection_check_boxes :contact_ids, Contact.all, :id, :name %>
+      </div>
+    </div>
   </div>
-    <%= f.submit(:class => "btn btn-primary") %>
 <% end %>

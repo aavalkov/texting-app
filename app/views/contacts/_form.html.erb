@@ -1,9 +1,9 @@
 <%= form_for(@contact) do |f| %>
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class=>"form-control" %>
     <%= f.label :number %>
-    <%= f.text_field :number %>
+    <%= f.text_field :number, :class=>"form-control" %>
   </div>
     <%= f.submit(:class => "btn btn-primary") %>
 <% end %>
