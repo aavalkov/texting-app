@@ -17,9 +17,9 @@ class MessagesController < ApplicationController
       params[:message][:to] = @contact.number
       @message = Message.new(messages_params)
         if @message.save
-          flash[:notice] = "Message sent to @contact.name"
+          flash[:notice] = "Message sent to #{@contact.name}"
         else
-          render 'new'
+          flash[:notice] = "Something went wrong... please check that all fields are valid"
         end
     end
     redirect_to root_path
