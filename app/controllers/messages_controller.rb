@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_filter :authenticate_user!, only: [:index, :create, :edit, :update]
 
   def index
     @messages = Message.all
