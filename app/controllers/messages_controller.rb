@@ -10,12 +10,19 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(messages_params)
-    if @message.save
-      redirect_to messages_path
-    else
-      render 'new'
+    @contacts = params[:message][:contact_ids]
+    @contacts.pop
+    @contacts.each do |id|
+      @contact = Contact.find(id)
+      params[:message][:to] = @contact.number
+      @message = Message.new(messages_params)
+        if @message.save
+          flash[:notice] = "Message sent to @contact.name"
+        else
+          render 'new'
+        end
     end
+    redirect_to root_path
   end
 
   def show
@@ -23,7 +30,7 @@ class MessagesController < ApplicationController
 
 private
   def messages_params
-    params.require(:message).permit(:to, :from, :body)
+    params.require(:message).permit(:to, :from, :body, :contact_ids)
   end
 
 
