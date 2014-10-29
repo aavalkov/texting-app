@@ -6,7 +6,7 @@ This app allowes users to send texts using the Twilio API.
 
 ##Setup
 
-You will need to create an account through Twilio. The basic free account will allow you to send texts(to verified numbers) through a phone number that Twilio provides you with.
+You will need to create an account through Twilio. The basic free account will allow you to send texts (to verified numbers only) through a phone number that Twilio provides you with.
 
 In your terminal, clone the repo
 
